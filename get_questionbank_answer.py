@@ -22,7 +22,7 @@ for k in ('PC_task_knowledge', 'pc_task_konwMembers'):
                 'answers[%s]'%j: i
             }
             r = s.post(verify_q, cookies=cookie, data = data)
-            r = s.post(invite_url, headers=headers, data={ 'invite_userid': invite_userid, "client_code": "040ce6c23213494c8de9653e0074YX30", "client": "alipay" })
+            isOK = json.loads(r.text)['result']
             if isOK == 'ok':
                 questionbank.append('%s:%s'%(j,i))
                 break
